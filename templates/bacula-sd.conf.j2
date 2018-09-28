@@ -1,0 +1,45 @@
+#
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !! Managed by Ansible role sedovandrew.bacula_storage !!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+
+Storage {
+  Name = {{ bacula_storage_name }}
+  SDPort = {{ bacula_storage_port }}
+  WorkingDirectory = "{{ bacula_storage_working_directory }}"
+  Pid Directory = "{{ bacula_storage_pid_directory }}"
+  Maximum Concurrent Jobs = {{ bacula_storage_maximum_concurrent_jobs }}
+}
+
+#
+# List Directors who are permitted to contact Storage daemon
+#
+Director {
+  Name = {{ bacula_director_name }}
+  Password = "{{ bacula_director_password }}"
+}
+
+
+{% for device in bacula_storage_devices %}
+Device {
+  Name = {{ device.name }}
+  Media Type = {{ device.media_type }}
+  Archive Device = {{ device.archive_device }}
+  LabelMedia = {{ device.label_media }};
+  Random Access = {{ device.random_access }};
+  AutomaticMount = {{ device.automatic_mount }};
+  RemovableMedia = {{ device.removable_media }};
+  AlwaysOpen = {{ device.always_open }};
+}
+
+{% endfor %}
+
+# 
+# Send all messages to the Director, 
+# mount messages also are sent to the email address
+#
+Messages {
+  Name = Standard
+  director = bacula-dir = all
+}

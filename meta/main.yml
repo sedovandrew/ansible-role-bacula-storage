@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name: bacula_storage
+  author: Sedov Andrey
+  description: Installation and configuration of the Bacula storage.
+  issue_tracker_url: https://github.com/sedovandrew/ansible-role-bacula-storage/issues
+  license: BSD
+  min_ansible_version: 1.2
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - bacula
+
+dependencies: []

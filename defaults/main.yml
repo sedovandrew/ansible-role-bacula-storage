@@ -1,0 +1,21 @@
+---
+bacula_storage_version: 5.2.13
+
+bacula_storage_name: bacula-sd
+bacula_storage_port: 9103
+bacula_storage_working_directory: /var/spool/bacula
+bacula_storage_pid_directory: /var/run
+bacula_storage_maximum_concurrent_jobs: 20
+
+bacula_director_name: bacula-dir
+bacula_director_password: "@@SD_PASSWORD@@"
+
+bacula_storage_devices: []
+# - name: FileDevice
+#   media_type: File
+#   archive_device: /bacula_storage
+#   label_media: "yes"
+#   random_access: "Yes"
+#   automatic_mount: "yes"
+#   removable_media: "no"
+#   always_open: "no"

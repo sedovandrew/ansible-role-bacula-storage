@@ -1,6 +1,8 @@
 Role bacula_storage
 ===================
 
+[![Build Status](https://travis-ci.org/sedovandrew/ansible-role-bacula-storage.svg?branch=master)](https://travis-ci.org/sedovandrew/ansible-role-bacula-storage)
+
 Installation and configuration of the Bacula storage.
 
 Role Variables
